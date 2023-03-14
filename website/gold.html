@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=<!-- HTML code to display the gold and silver prices -->
+  <p>Gold Price: <span id="gold-price"></span></p>
+  <p>Silver Price: <span id="silver-price"></span></p>
+  
+  <!-- JavaScript code to retrieve the gold and silver prices using the Kitco API -->
+  <script>
+  const apiKey = 'YOUR_API_KEY_HERE';
+  const goldUrl = `https://www.kitco.com/api/v1/live/gold?apikey=${apiKey}`;
+  const silverUrl = `https://www.kitco.com/api/v1/live/silver?apikey=${apiKey}`;
+  
+  // Retrieve the gold price
+  fetch(goldUrl)
+    .then(response => response.json())
+    .then(data => {
+      const goldPrice = data["data"]["last"];
+      document.getElementById("gold-price").textContent = goldPrice;
+    });
+  
+  // Retrieve the silver price
+  fetch(silverUrl)
+    .then(response => response.json())
+    .then(data => {
+      const silverPrice = data["data"]["last"];
+      document.getElementById("silver-price").textContent = silverPrice;
+    });
+  </script>
+  , initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
